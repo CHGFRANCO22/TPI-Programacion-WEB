@@ -1,0 +1,50 @@
+# Ignorar la carpeta de configuración de Visual Studio
+.vs/
+
+# Ignorar binarios y archivos de compilación
+bin/
+obj/
+
+# Archivos generados por Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Paquetes NuGet descargados
+*.nupkg
+*.snupkg
+packages/
+
+# Archivos de publicación
+*.publish.xml
+
+# Archivos temporales
+*.log
+*.vspscc
+*.vssscc
+
+# Configuración de Rider IDE
+.idea/
+
+# Archivos generados por el sistema operativo
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Archivos de base de datos locales
+*.mdf
+*.ldf
+
+# Configuración de resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Archivos temporales de JetBrains Rider
+.idea/
+
+# Configuración de Azure DevOps
+.vscode/
+
+# Otros
+*.DS_Store
