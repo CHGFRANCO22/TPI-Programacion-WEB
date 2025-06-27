@@ -12,7 +12,6 @@ Este proyecto es una aplicación web construida con **ASP.NET Core MVC** y **Ent
 - Visual Studio 2022
 - .NET 9.0 (modificá si usás otro)
 
----
 
 ## ⚙️ Requisitos
 
@@ -22,6 +21,7 @@ Antes de clonar el repositorio, asegurate de tener instalado:
 - ✅ [Visual Studio 2022](https://visualstudio.microsoft.com/) con cargas de trabajo de desarrollo web y .NET.
 - ✅ [SQL Server LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-express-localdb) (viene con Visual Studio)
 - ✅ [Entity Framework CLI](https://learn.microsoft.com/ef/core/cli/dotnet)  
+- ✅ [Postman](https://www.postman.com/) o similar para probar la API (opcional)
   Instalalo si no lo tenés:
 
   ```bash
@@ -41,9 +41,16 @@ Verificar la cadena de conexión en appsettings.json:
 
 Solo la primera vez o si cambiás el modelo de datos:
 
-dotnet ef database update
+Restaurar y compilar:
+bash:
+dotnet restore
+dotnet build
 
-4. Ejecutar el proyecto:
+4. Aplicar migraciones para que se cree la base de datos automáticamente:
+dotnet ef database update --context AppDbContext
+
+
+4. Ejecutar la aplicacion:
 bash
 dotnet run
 
@@ -73,3 +80,11 @@ mvc-app/
 ├── wwwroot/
 ├── appsettings.json  # Cadena de conexión
 └── Program.cs
+
+
+## Notas adicionales
+
+- La base de datos se crea automáticamente con las migraciones la primera vez que corras `dotnet ef database update`.  
+- Si cambiás los modelos, recordá crear nuevas migraciones con `dotnet ef migrations add NombreMigracion` y aplicar con `dotnet ef database update`.  
+- El proyecto está configurado para usar SQL Server LocalDB, que viene con Visual Studio. Si querés usar otro servidor SQL, actualizá la cadena de conexión en `appsettings.json`.  
+- Para problemas comunes con la base de datos o conexión, verificá que LocalDB esté instalado y corriendo con `sqllocaldb info` en consola.
